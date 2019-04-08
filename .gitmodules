@@ -1,0 +1,8 @@
+[submodule "exred_ui"]
+	path = exred_ui
+	url = https://github.com/exredorg/exred_ui.git
+	branch = use-sqlite
+[submodule "exred_scheduler"]
+	path = exred_scheduler
+	url = https://github.com/exredorg/exred_scheduler.git
+	branch = use-sqlite
