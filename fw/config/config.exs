@@ -77,32 +77,18 @@ config :nerves_init_gadget,
   node_host: :mdns_domain
 
 # --- BEGIN exred_ui config --------------------------------------------------
-config :exred_ui,
-  ecto_repos: [ExredUI.Repo]
-
 config :exred_ui, ExredUIWeb.Endpoint,
   load_from_system_env: false,
   http: [port: 8080],
   url: [host: "localhost", port: 8080],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
+  check_origin: false,
   root: ".",
   version: Application.spec(:exred_ui, :vsn),
   secret_key_base: "lNynDH9TigJu4E18vTfeAXKJUU6Vx8ARmpuFUW3DXOTdGiKSKktPPswoWAhx9LwW",
   render_errors: [view: ExredUIWeb.ErrorView, accepts: ~w(json json-api)],
   pubsub: [name: ExredUI.PubSub, adapter: Phoenix.PubSub.PG2]
-
-config :exred_ui, ExredUI.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  # username: "exred_user",
-  # password: "hello",
-  # database: "exred_ui_dev",
-  username: "postgres",
-  password: "postgres",
-  database: "postgres",
-  hostname: "localhost",
-  port: 5432,
-  pool_size: 10
 
 config :phoenix, :format_encoders, "json-api": Poison
 
@@ -128,32 +114,45 @@ config :guardian, Guardian,
       "VR8YBJA94hYgn5KSxAHhr6RtBNJI2ZIdt11Cl3WlaxNtC+lX3hPTVSbFOBDKPEGF",
   serializer: Pchat.GuardianSerializer
 
+config :exred_ui,
+  ecto_repos: [ExredUI.SqliteRepo]
+
+config :exred_ui, ExredUI.SqliteRepo,
+  adapter: Sqlite.Ecto2,
+  database: "/root/data/exred.sqlite3"
+
+config :exred_ui, ExredUI.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "exred_user",
+  password: "hello",
+  database: "exred_ui_dev",
+  hostname: "localhost",
+  port: 5432,
+  pool_size: 10
+
 # --- END exred_ui config -----------------------------------------------------
 
 # --- BEGIN exred_scheduler config --------------------------------------------
 config :exred_scheduler, :exred_ui_hostname, "localhost"
-config :exred_scheduler, :exred_ui_port, 4000
+config :exred_scheduler, :exred_ui_port, 8080
 
 config :logger, :console,
   format: "[$level] $metadata$message\n",
   metadata: [:module, :function]
 
-config :exred_library, :psql_conn,
-  username: "postgres",
-  password: "postgres",
-  database: "postgres",
-  # username: "exred_user",
-  # password: "hello",
-  # database: "exred_ui_dev",
-  hostname: "localhost",
-  port: 5432
+config :exred_library,
+  ecto_repos: [Exred.Library.SqliteRepo]
+
+config :exred_library, Exred.Library.SqliteRepo,
+  adapter: Sqlite.Ecto2,
+  database: "/root/data/exred.sqlite3"
 
 config :grpc, start_server: true
 
 config :exred_node_aws_iot_daemon, :ssl,
-  keyfile: "~/exred_data/private.pem.key",
-  certfile: "~/exred_data/certificate.pem.crt",
-  cacertfile: "~/exred_data/ca_root.pem"
+  keyfile: "/var/exred_data/private.pem.key",
+  certfile: "/var/exred_data/certificate.pem.crt",
+  cacertfile: "/var/exred_data/ca_root.pem"
 
 # --- END exred_scheduler config ----------------------------------------------
 

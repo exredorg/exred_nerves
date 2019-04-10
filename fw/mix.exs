@@ -28,6 +28,7 @@ defmodule Fw.MixProject do
     [
       mod: {Fw.Application, []},
       extra_applications: [:logger, :runtime_tools]
+      #extra_applications: [:logger, :runtime_tools, :exred_ui, :exred_scheduler]
     ]
   end
 
