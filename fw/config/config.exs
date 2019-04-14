@@ -150,9 +150,9 @@ config :exred_library, Exred.Library.SqliteRepo,
 config :grpc, start_server: true
 
 config :exred_node_aws_iot_daemon, :ssl,
-  keyfile: "/var/exred_data/private.pem.key",
-  certfile: "/var/exred_data/certificate.pem.crt",
-  cacertfile: "/var/exred_data/ca_root.pem"
+  keyfile: "/root/data/private.pem.key",
+  certfile: "/root/data/certificate.pem.crt",
+  cacertfile: "/root/data/ca_root.pem"
 
 # --- END exred_scheduler config ----------------------------------------------
 

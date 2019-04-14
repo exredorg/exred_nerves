@@ -18,6 +18,7 @@
   "elixir_make": {:hex, :elixir_make, "0.5.2", "96a28c79f5b8d34879cd95ebc04d2a0d678cfbbd3e74c43cb63a76adf0ee8054", [:mix], [], "hexpm"},
   "elixir_uuid": {:hex, :elixir_uuid, "1.2.0", "ff26e938f95830b1db152cb6e594d711c10c02c6391236900ddd070a6b01271d", [:mix], [], "hexpm"},
   "esqlite": {:hex, :esqlite, "0.3.0", "f6c96fae1236fd8da73da904278b820c807aee4f41c7c837c33de1c2edb857fb", [:rebar3], [], "hexpm"},
+  "exred_library": {:git, "https://github.com/exredorg/exred_library.git", "ab1425f97027c724102cafdb6c814313291fa8ed", [branch: "use-sqlite"]},
   "exred_node_aws_iot_daemon": {:hex, :exred_node_aws_iot_daemon, "0.2.1", "080f644768d534f5031cab0fd5a5e7c3aa1784e9406c74dff73db4d1545b41b4", [:mix], [{:conform, "~> 2.2", [hex: :conform, repo: "hexpm", optional: false]}, {:exred_nodeprototype, "~> 0.2", [hex: :exred_nodeprototype, repo: "hexpm", optional: false]}, {:gen_mqtt, "~> 0.4.0", [hex: :gen_mqtt, repo: "hexpm", optional: false]}], "hexpm"},
   "exred_node_aws_iot_thingshadow_in": {:hex, :exred_node_aws_iot_thingshadow_in, "0.2.0", "88b43da75f4c525eb9086ed50cdfa7d0057ff7a40eea0a19ce7f28c001574ef2", [:mix], [{:exred_nodeprototype, "~> 0.2", [hex: :exred_nodeprototype, repo: "hexpm", optional: false]}], "hexpm"},
   "exred_node_aws_iot_thingshadow_out": {:hex, :exred_node_aws_iot_thingshadow_out, "0.2.1", "59894f1c088de49f9ba8f49f0cfe57f33ad5427bfa8fbe483314c254abcbf2d9", [:mix], [{:exred_nodeprototype, "~> 0.2", [hex: :exred_nodeprototype, repo: "hexpm", optional: false]}, {:poison, "~> 2.0", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm"},
