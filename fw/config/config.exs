@@ -15,7 +15,14 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # involved with firmware updates.
 
 config :shoehorn,
-  init: [:nerves_runtime, :nerves_init_gadget, :nerves_network],
+  init: [
+    {IO, :puts, ["##################### Init #####################"]},
+    {Fw.WlanConfigProvider, :init, [[path: "/root/wlan_config.yaml"]]},
+    {IO, :puts, ["################################################"]},
+    :nerves_runtime,
+    :nerves_init_gadget,
+    :nerves_network
+  ],
   app: Mix.Project.config()[:app]
 
 config :nerves_network,

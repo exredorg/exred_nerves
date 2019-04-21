@@ -28,7 +28,6 @@ defmodule Fw.MixProject do
     [
       mod: {Fw.Application, []},
       extra_applications: [:logger, :runtime_tools]
-      #extra_applications: [:logger, :runtime_tools, :exred_ui, :exred_scheduler]
     ]
   end
 
@@ -57,6 +56,11 @@ defmodule Fw.MixProject do
       {:nerves_system_x86_64, "~> 1.6", runtime: false, targets: :x86_64},
       {:exr_rpi3, path: "../../exr_rpi3", runtime: false, targets: :exr_rpi3},
       {:nerves_network, "~> 0.5.5"},
+
+      # runtime config parsing (see config :shoehorn)
+      {:yaml_elixir, "~> 2.2"},
+
+      # exred system
       {:exred_ui, path: "../exred_ui"},
       {:exred_scheduler, path: "../exred_scheduler"}
     ]

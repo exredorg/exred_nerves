@@ -1,0 +1,19 @@
+# This is an example config file that is read during the shoehorn init process if it is found 
+# in /root/wlan_config.yaml
+
+# The purpose of this config file is to provide a way to set up wlan access without rebuilding the 
+# firmware.
+# For the initial setup you will need wired network access or serial console access to create this file 
+# on the device
+
+# Different ways to create the file on the device:
+# - copy this file on your host, add ssid and password, ftp it to the nerves device (requires wired ethernet)
+# - from the iex console on the device (access with ssh or through a serial connection):
+#   Fw.WlanConfigProvider.create_config("mySSID", "myPassword")
+
+# See the shoehorn config in fw/config/config.exs
+# and the Fw.WlanConfigProvider module at fw/lib/fw/wlan_config_provider.ex
+# NOTE: this is not a distillery config provider module
+
+nerves_network_ssid: 
+nerves_network_psk:

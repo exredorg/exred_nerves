@@ -1,0 +1,8 @@
+# This config file is read during the shoehorn init process
+# It allows you to set the ssid and password for the wlan to connect to
+# without having to rebuild the firmware
+
+nerves_network_ssid: azonto
+nerves_network_psk: 0i11QiMB1R
+
+
