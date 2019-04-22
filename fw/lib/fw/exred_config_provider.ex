@@ -1,7 +1,35 @@
-defmodule Fw.WlanConfigProvider do
+defmodule Fw.ExredConfigProvider do
   @moduledoc false
 
-  def init(path: wlan_config_path) do
+  def init_db do
+    source = "/var/exred_data/exred.sqlite3"
+    dest = "/root/data/exred.sqlite3"
+
+    case File.mkdir_p("/root/data") do
+      :ok ->
+        copy_db(source, dest)
+
+      {:error, :eexist} ->
+        copy_db(source, dest)
+
+      {:error, error} ->
+        info("couldn't create data dir (/root/data): #{error}")
+    end
+
+    :ok
+  end
+
+  defp copy_db(source, dest) do
+    case File.cp(source, dest, fn _, _ -> false end) do
+      :ok ->
+        info("database ready")
+
+      {:error, error} ->
+        info("couldn't copy default database cp #{source} -> #{dest}: #{error}")
+    end
+  end
+
+  def init_wlan(path: wlan_config_path) do
     info("running wlan config provider")
     info("reading wlan config: #{inspect(wlan_config_path)}")
 
