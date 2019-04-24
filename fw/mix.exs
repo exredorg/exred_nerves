@@ -54,15 +54,15 @@ defmodule Fw.MixProject do
       {:nerves_system_rpi3a, "~> 1.6", runtime: false, targets: :rpi3a},
       {:nerves_system_bbb, "~> 2.0", runtime: false, targets: :bbb},
       {:nerves_system_x86_64, "~> 1.6", runtime: false, targets: :x86_64},
-      {:exr_rpi3, path: "../../exr_rpi3", runtime: false, targets: :exr_rpi3},
+      {:exr_rpi3, "1.7.1", runtime: false, targets: :exr_rpi3},
       {:nerves_network, "~> 0.5.5"},
 
       # runtime config parsing (see config :shoehorn)
       {:yaml_elixir, "~> 2.2"},
 
       # exred system
-      {:exred_ui, path: "../exred_ui"},
-      {:exred_scheduler, path: "../exred_scheduler"}
+      {:exred_ui, github: "exredorg/exred_ui", branch: "use-sqlite"},
+      {:exred_scheduler, github: "exredorg/exred_scheduler", branch: "use-sqlite"}
     ]
   end
 end
