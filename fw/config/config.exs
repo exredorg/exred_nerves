@@ -21,6 +21,7 @@ config :shoehorn,
     {Fw.ExredConfigProvider, :init_db, []},
     {Fw.ExredConfigProvider, :init_wlan, [[path: "/root/wlan_config.yaml"]]},
     {IO, :puts, ["########## END Exred Init ########################"]},
+    {:os, :cmd, ['/usr/bin/redis-server /etc/redis.conf']},
     :nerves_init_gadget,
     :nerves_network
   ],
